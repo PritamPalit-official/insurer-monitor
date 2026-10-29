@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "insurer-monitor"
+version = "0.1.0"
+description = "Agentic AI extraction agent for insurer disclosure PDFs with deterministic reconciliation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Pritam Palit", email = "pritampalit02@gmail.com"},
+]
+keywords = [
+    "agentic-ai",
+    "pdf-extraction",
+    "insurance",
+    "data-validation",
+    "reconciliation",
+    "bigquery",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+]
+
+dependencies = [
+    "pdfplumber>=0.10.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+gemini = ["google-generativeai>=0.8.0"]
+openai = ["openai>=1.0.0"]
+bigquery = ["google-cloud-bigquery>=3.0.0"]
+dev = ["pytest>=8.0.0", "pytest-cov>=5.0.0", "ruff>=0.4.0"]
+
+[project.scripts]
+insurer-monitor = "agent.loop:main"
+
+[tool.pytest.ini_options]
+testpaths = ["checks/tests"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP"]
