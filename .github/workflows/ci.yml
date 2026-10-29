@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Lint with ruff
+        run: |
+          pip install ruff
+          ruff check .
+        continue-on-error: true
+
+      - name: Run tests
+        run: |
+          python -m pytest checks/tests/ -v --tb=short --co -q 2>/dev/null || true
+          python -m pytest checks/tests/ -v --tb=short
+
+      - name: Check schema imports
+        run: |
+          python -c "from agent.schema import KPIRow, NullableValue, Unit; print('Schema OK')"
+          python -c "from checks.reconcile import reconcile; print('Reconcile OK')"
+          python -c "from commentary.validate import validate_commentary; print('Validator OK')"
