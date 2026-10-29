@@ -1,0 +1,25 @@
+doc_id,page,insurer,metric_name,expected_value,unit
+sample_001,1,HDFC ERGO,Gross Direct Premium,4521.30,crores
+sample_001,1,HDFC ERGO,Net Premium,3890.50,crores
+sample_001,1,HDFC ERGO,Net Incurred Claims,2456.80,crores
+sample_001,1,HDFC ERGO,Commission Paid,412.30,crores
+sample_001,1,HDFC ERGO,Operating Expenses,678.90,crores
+sample_001,1,HDFC ERGO,Underwriting Profit/Loss,342.50,crores
+sample_001,2,HDFC ERGO,Investment Income,234.60,crores
+sample_001,2,HDFC ERGO,Profit Before Tax,577.10,crores
+sample_002,1,ICICI Lombard,Gross Direct Premium,5234.70,crores
+sample_002,1,ICICI Lombard,Net Premium,4567.20,crores
+sample_002,1,ICICI Lombard,Net Incurred Claims,2890.40,crores
+sample_002,1,ICICI Lombard,Commission Paid,523.10,crores
+sample_002,1,ICICI Lombard,Operating Expenses,789.60,crores
+sample_002,1,ICICI Lombard,Underwriting Profit/Loss,364.10,crores
+sample_002,2,ICICI Lombard,Investment Income,312.80,crores
+sample_002,2,ICICI Lombard,Profit Before Tax,676.90,crores
+sample_003,1,Star Health,Gross Direct Premium,3456.90,crores
+sample_003,1,Star Health,Net Premium,3210.40,crores
+sample_003,1,Star Health,Net Incurred Claims,2678.30,crores
+sample_003,1,Star Health,Commission Paid,345.60,crores
+sample_003,1,Star Health,Operating Expenses,567.80,crores
+sample_003,1,Star Health,Underwriting Profit/Loss,-381.30,crores
+sample_003,2,Star Health,Investment Income,189.40,crores
+sample_003,2,Star Health,Profit Before Tax,-191.90,crores
